@@ -1,0 +1,25 @@
+2001-08-18  Rob Partington  <robpartington@mac.com>
+
+	* edf.y, edfelement.c, edf.h, test.pl: Modified the structure to remember
+	whether a tag had a null close or not so we can perfectly reproduce the
+	input from our tree rather than munging things in the tester.
+
+2001-08-18  Rob Partington  <robpartington@mac.com>
+	
+	* edf.l: Allowed '-' to be a word character in element tags
+
+	* tests, test.pl: Added failing tests and code to cope accordingly
+
+2001-08-18  Rob Partington  <robpartington@mac.com>
+
+	* edfelement.c, edf.y: Modified to allow empty subtrees and remember them 
+	accordingly rather than collapsing them to <element/>
+
+2001-08-18  Rob Partington  <robpartington@mac.com>
+
+	* tests: Added empty subtree test (currently failing)
+
+	* test.pl: Removed bogus double quote stripping which broke some tests
+
+	* main.c: Removed TESTING #define in favour of "testing" variable and
+	added command line argument for enabling testing mode

@@ -1,0 +1,83 @@
+Simple node
+<edf/>
+
+Simple numeric node
+<edf=2/>
+
+Simple string node
+<edf="on"/>
+
+One simple node child
+<request="tree"><edf/></request>
+
+One numeric node child
+<request="tree"><edf=42/></request>
+
+One string node child
+<request="tree"><edf="string"/></request>
+
+One simple node child, null end
+<request="tree"><edf/></>
+
+One numeric node child, null end
+<request="tree"><edf=42/></>
+
+One string node child, null end
+<request="tree"><edf="string"/></>
+
+Two children
+<request="tree"><edf="string"/><hhgttg=42/></request>
+
+Multilevel tree 
+<request="tree"><edf="string"><cow="moo"/></edf></request>
+
+Multilevel tree, null ends
+<request="tree"><edf="string"><cow="moo"/></></>
+
+Two child trees
+<request="tree"><edf="tree"><inside=1/></edf><cow="tree"><inside=1/></cow></request>
+
+Two child trees, null ends
+<request="tree"><edf="tree"><inside=1/></><cow="tree"><inside=1/></></>
+
+Mix of nodes and trees, null ends
+<request="tree"><edf="tree"><inside=1/></><cow="moo"/><tree=42><moo="cow"/></></>
+
+Mix of nodes and trees
+<request="tree"><edf="tree"><inside=1/></edf><cow="moo"/><tree=42><moo="cow"/></tree></request>
+
+All nodes are flags, null closes
+<moo><cow><fish/></><donkey/></>
+
+Escaped characters in strings
+<cow="\"Moo,\" said the cow"/>
+
+We can have > in a string too
+<cow="Moo < cow > afile"/>
+
+And EDF in a string...
+<cow="<cow=\"moo\">"/>
+
+Are we 8bit clean?
+<cow="é &egrave; ç &aacute;"/>
+
+Can we have 8bit element names?  FAIL (no parser support yet)
+<VOILç="Here it is!"/>
+
+Two top-level nodes
+<edf="on"/><edf="off"/>
+
+Two top-level nodes with subtrees, null closes
+<edf="on"><hamster="race"/></><edf="off"><hamster="baby"/></>
+
+Do empty subtrees work?
+<edf="on"></edf>
+
+Do X-Elements work?
+<x-topper=10/>
+
+This test always fails FAIL
+<<>>
+
+We can't have punctuation in elements FAIL
+<x-khendon's-header="on"/>
